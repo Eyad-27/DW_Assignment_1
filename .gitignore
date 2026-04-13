@@ -1,0 +1,15 @@
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+[Pp]roblem_*/bin/
+[Pp]roblem_*/obj/
+TestResults/
+*.database
+*.ispac
+*.dtproj.user
+Backup/
+ipch/
+*.aps
+*.intermediate.manifest

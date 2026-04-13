@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36301.6 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Problem_1", "Problem_1\Problem_1.dtproj", "{ADBF0872-FAF1-A572-E20C-5ACD04C22493}"
+EndProject
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Problem_2", "Problem_2\Problem_2.dtproj", "{5D37A077-C79A-5002-66BF-E230758A1A6A}"
+EndProject
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Problem_3", "Problem_3\Problem_3.dtproj", "{82C7C565-F1F3-B7CD-2762-358FDC63113C}"
+EndProject
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Problem_4", "Problem_4\Problem_4.dtproj", "{6A47FBDD-1293-099C-BC23-F3DEFBA51985}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ADBF0872-FAF1-A572-E20C-5ACD04C22493}.Development|Default.ActiveCfg = Development
+		{ADBF0872-FAF1-A572-E20C-5ACD04C22493}.Development|Default.Build.0 = Development
+		{5D37A077-C79A-5002-66BF-E230758A1A6A}.Development|Default.ActiveCfg = Development
+		{5D37A077-C79A-5002-66BF-E230758A1A6A}.Development|Default.Build.0 = Development
+		{82C7C565-F1F3-B7CD-2762-358FDC63113C}.Development|Default.ActiveCfg = Development
+		{82C7C565-F1F3-B7CD-2762-358FDC63113C}.Development|Default.Build.0 = Development
+		{6A47FBDD-1293-099C-BC23-F3DEFBA51985}.Development|Default.ActiveCfg = Development
+		{6A47FBDD-1293-099C-BC23-F3DEFBA51985}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B383D392-C2E0-4261-9193-6412F971B58A}
+	EndGlobalSection
+EndGlobal
