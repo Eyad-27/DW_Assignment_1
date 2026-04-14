@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{67CE03EF-59A9-4CB1-A474-717E77A205D3}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{CAA2863D-17E1-4943-9038-7B5E5AEC26C2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -312,34 +312,34 @@ FROM Device_Status s;</property>
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="IgnoreFailure"
                       externalMetadataColumnId="Package\Data Flow Task\Data Source.Outputs[OLE DB Source Output].ExternalColumns[Device_Type]"
                       length="50"
                       lineageId="Package\Data Flow Task\Data Source.Outputs[OLE DB Source Output].Columns[Device_Type]"
                       name="Device_Type"
-                      truncationRowDisposition="FailComponent" />
+                      truncationRowDisposition="IgnoreFailure" />
                     <outputColumn
                       refId="Package\Data Flow Task\Data Source.Outputs[OLE DB Source Output].Columns[Location]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="IgnoreFailure"
                       externalMetadataColumnId="Package\Data Flow Task\Data Source.Outputs[OLE DB Source Output].ExternalColumns[Location]"
                       length="50"
                       lineageId="Package\Data Flow Task\Data Source.Outputs[OLE DB Source Output].Columns[Location]"
                       name="Location"
-                      truncationRowDisposition="FailComponent" />
+                      truncationRowDisposition="IgnoreFailure" />
                     <outputColumn
                       refId="Package\Data Flow Task\Data Source.Outputs[OLE DB Source Output].Columns[Status]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="IgnoreFailure"
                       externalMetadataColumnId="Package\Data Flow Task\Data Source.Outputs[OLE DB Source Output].ExternalColumns[Status]"
                       length="50"
                       lineageId="Package\Data Flow Task\Data Source.Outputs[OLE DB Source Output].Columns[Status]"
                       name="Status"
-                      truncationRowDisposition="FailComponent" />
+                      truncationRowDisposition="IgnoreFailure" />
                     <outputColumn
                       refId="Package\Data Flow Task\Data Source.Outputs[OLE DB Source Output].Columns[Schedule_Date]"
                       dataType="wstr"
@@ -1361,34 +1361,34 @@ FROM Device_Status s;</property>
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="IgnoreFailure"
                       externalMetadataColumnId="Package\Data Flow Task\Target Table.Outputs[OLE DB Source Output].ExternalColumns[Device_Type]"
                       length="50"
                       lineageId="Package\Data Flow Task\Target Table.Outputs[OLE DB Source Output].Columns[Device_Type]"
                       name="Device_Type"
-                      truncationRowDisposition="FailComponent" />
+                      truncationRowDisposition="IgnoreFailure" />
                     <outputColumn
                       refId="Package\Data Flow Task\Target Table.Outputs[OLE DB Source Output].Columns[Location]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="IgnoreFailure"
                       externalMetadataColumnId="Package\Data Flow Task\Target Table.Outputs[OLE DB Source Output].ExternalColumns[Location]"
                       length="50"
                       lineageId="Package\Data Flow Task\Target Table.Outputs[OLE DB Source Output].Columns[Location]"
                       name="Location"
-                      truncationRowDisposition="FailComponent" />
+                      truncationRowDisposition="IgnoreFailure" />
                     <outputColumn
                       refId="Package\Data Flow Task\Target Table.Outputs[OLE DB Source Output].Columns[Status]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="IgnoreFailure"
                       externalMetadataColumnId="Package\Data Flow Task\Target Table.Outputs[OLE DB Source Output].ExternalColumns[Status]"
                       length="50"
                       lineageId="Package\Data Flow Task\Target Table.Outputs[OLE DB Source Output].Columns[Status]"
                       name="Status"
-                      truncationRowDisposition="FailComponent" />
+                      truncationRowDisposition="IgnoreFailure" />
                     <outputColumn
                       refId="Package\Data Flow Task\Target Table.Outputs[OLE DB Source Output].Columns[Insert_Date]"
                       dataType="wstr"
