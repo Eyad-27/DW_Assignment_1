@@ -19,5 +19,5 @@ Before running the SSIS packages, you must set up the database environment:
 3. **Problem 1 Note**: Ensure the file paths in the Flat File and XML Source Connection Managers point to the correct location of `Air_Quality.csv` and `Air_Quality.xml` on your machine.
 
 ## Authors
-- Eyad Tamer (20230074)
-- Omnia Hassan (20231027)
+- Eyad Tamer -> 20230074 (Problem 1 & 3)
+- Omnia Hassan -> 20231027 (Problem 2 & 4)
