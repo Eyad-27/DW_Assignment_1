@@ -1,19 +1,2623 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="4/13/2026 5:53:26 PM"
+  DTS:CreationDate="4/15/2026 2:59:28 PM"
   DTS:CreationName="Microsoft.Package"
-  DTS:CreatorComputerName="EYAD-TAMER"
-  DTS:CreatorName="EYAD-TAMER\eyadm"
-  DTS:DTSID="{5962B387-B222-4862-B300-BE448FD2174A}"
+  DTS:CreatorComputerName="DESKTOP-CHJB13U"
+  DTS:CreatorName="DESKTOP-CHJB13U\Omnia Hassan"
+  DTS:DTSID="{DCB12344-DD93-48CC-8927-4E6B715881C5}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="17.0.1010.2"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
   DTS:LocaleID="1033"
-  DTS:ObjectName="Package"
+  DTS:ObjectName="Problem_4_Flow"
   DTS:PackageType="5"
-  DTS:VersionGUID="{8C1B888E-AFC4-42AB-8502-198580ACDA2B}">
+  DTS:VersionBuild="63"
+  DTS:VersionGUID="{53AEC3C7-C90B-47F4-A32D-A939F5AD1AEC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-CHJB13U.trading]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{068F7860-CD22-43C5-A126-E26E2AD84A3B}"
+      DTS:ObjectName="DESKTOP-CHJB13U.trading">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-CHJB13U;Initial Catalog=trading;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package-{068F7860-CD22-43C5-A126-E26E2AD84A3B}DESKTOP-CHJB13U.trading;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-CHJB13U.trading 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3A5CD8B7-0D46-4186-82FD-3463AF327E54}"
+      DTS:ObjectName="DESKTOP-CHJB13U.trading 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-CHJB13U;Initial Catalog=trading;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package-{3A5CD8B7-0D46-4186-82FD-3463AF327E54}DESKTOP-CHJB13U.trading 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{CC1C4B6B-025A-4A28-840B-BC3684275BE3}"
+      DTS:ObjectName="localhost">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=DWH_Assignment1;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Problem_4_Flow-{CC1C4B6B-025A-4A28-840B-BC3684275BE3}localhost;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:Variables />
-  <DTS:Executables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Import data &amp; transformation"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{F3002FF7-11EB-47D0-B1E9-2F934B0252BE}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import data &amp; transformation"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Import data &amp; transformation\Aggregate"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="Aggregate"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Import data &amp; transformation\Aggregate.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Aggregate.Inputs[Aggregate Input 1].Columns[Trader_ID]"
+                      cachedDataType="i4"
+                      cachedName="Trader_ID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[Trader_ID]" />
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Aggregate.Inputs[Aggregate Input 1].Columns[New_Quantity]"
+                      cachedDataType="i4"
+                      cachedName="New_Quantity"
+                      lineageId="Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[New_Quantity]" />
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Aggregate.Inputs[Aggregate Input 1].Columns[New_Actions]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="New_Actions"
+                      lineageId="Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[New_Actions]" />
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Aggregate.Inputs[Aggregate Input 1].Columns[Trade_TS]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Trade_TS"
+                      lineageId="Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[Trade_TS]" />
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Aggregate.Inputs[Aggregate Input 1].Columns[Buy_Quantity]"
+                      cachedDataType="i4"
+                      cachedName="Buy_Quantity"
+                      lineageId="Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[Buy_Quantity]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1].Columns[Trader_ID]"
+                      dataType="i4"
+                      lineageId="Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1].Columns[Trader_ID]"
+                      name="Trader_ID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[Trader_ID]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1].Columns[New_Quantity]"
+                      dataType="i4"
+                      lineageId="Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1].Columns[New_Quantity]"
+                      name="New_Quantity">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[New_Quantity]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1].Columns[New_Actions]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1].Columns[New_Actions]"
+                      name="New_Actions">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[New_Actions]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1].Columns[Trade_TS]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1].Columns[Trade_TS]"
+                      name="Trade_TS">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[Trade_TS]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1].Columns[Max_Buy]"
+                      dataType="i4"
+                      lineageId="Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1].Columns[Max_Buy]"
+                      name="Max_Buy">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[Buy_Quantity]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">7</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import data &amp; transformation\Aggregate 1"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="Aggregate 1"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Import data &amp; transformation\Aggregate 1.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Aggregate 1.Inputs[Aggregate Input 1].Columns[Trader_ID]"
+                      cachedDataType="i4"
+                      cachedName="Trader_ID"
+                      lineageId="Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1].Columns[Trader_ID]" />
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Aggregate 1.Inputs[Aggregate Input 1].Columns[Date]"
+                      cachedDataType="dbDate"
+                      cachedName="Date"
+                      lineageId="Package\Import data &amp; transformation\Derived Column.Outputs[Derived Column Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Aggregate 1.Inputs[Aggregate Input 1].Columns[Buy]"
+                      cachedDataType="i4"
+                      cachedName="Buy"
+                      lineageId="Package\Import data &amp; transformation\Derived Column.Outputs[Derived Column Output].Columns[Buy]" />
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Aggregate 1.Inputs[Aggregate Input 1].Columns[Sell]"
+                      cachedDataType="i4"
+                      cachedName="Sell"
+                      lineageId="Package\Import data &amp; transformation\Derived Column.Outputs[Derived Column Output].Columns[Sell]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import data &amp; transformation\Aggregate 1.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Aggregate 1.Outputs[Aggregate Output 1].Columns[Trader_ID]"
+                      dataType="i4"
+                      lineageId="Package\Import data &amp; transformation\Aggregate 1.Outputs[Aggregate Output 1].Columns[Trader_ID]"
+                      name="Trader_ID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1].Columns[Trader_ID]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Aggregate 1.Outputs[Aggregate Output 1].Columns[Date]"
+                      dataType="dbDate"
+                      lineageId="Package\Import data &amp; transformation\Aggregate 1.Outputs[Aggregate Output 1].Columns[Date]"
+                      name="Date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Import data &amp; transformation\Derived Column.Outputs[Derived Column Output].Columns[Date]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Aggregate 1.Outputs[Aggregate Output 1].Columns[Total_Buy]"
+                      dataType="i8"
+                      lineageId="Package\Import data &amp; transformation\Aggregate 1.Outputs[Aggregate Output 1].Columns[Total_Buy]"
+                      name="Total_Buy">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Import data &amp; transformation\Derived Column.Outputs[Derived Column Output].Columns[Buy]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Aggregate 1.Outputs[Aggregate Output 1].Columns[Total_Sell]"
+                      dataType="i8"
+                      lineageId="Package\Import data &amp; transformation\Aggregate 1.Outputs[Aggregate Output 1].Columns[Total_Sell]"
+                      name="Total_Sell">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Import data &amp; transformation\Derived Column.Outputs[Derived Column Output].Columns[Sell]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import data &amp; transformation\Conditional Split 1"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Import data &amp; transformation\Conditional Split 1.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Conditional Split 1.Inputs[Conditional Split Input].Columns[New_Actions]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="New_Actions"
+                      lineageId="Package\Import data &amp; transformation\Sort.Outputs[Sort Output].Columns[New_Actions]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import data &amp; transformation\Conditional Split 1.Outputs[Buy]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Buy"
+                  synchronousInputId="Package\Import data &amp; transformation\Conditional Split 1.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Import data &amp; transformation\Sort.Outputs[Sort Output].Columns[New_Actions]} == "buy"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">New_Actions == "buy"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import data &amp; transformation\Conditional Split 1.Outputs[Sell]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Sell"
+                  synchronousInputId="Package\Import data &amp; transformation\Conditional Split 1.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import data &amp; transformation\Conditional Split 1.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Import data &amp; transformation\Conditional Split 1.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import data &amp; transformation\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import data &amp; transformation\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import data &amp; transformation\Conditional Split 2"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split 2"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Import data &amp; transformation\Conditional Split 2.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Conditional Split 2.Inputs[Conditional Split Input].Columns[New_Actions]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="New_Actions"
+                      lineageId="Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[New_Actions]" />
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Conditional Split 2.Inputs[Conditional Split Input].Columns[Trade_TS]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Trade_TS"
+                      lineageId="Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[Trade_TS]" />
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Conditional Split 2.Inputs[Conditional Split Input].Columns[Buy_TS]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Buy_TS"
+                      lineageId="Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[Buy_TS]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import data &amp; transformation\Conditional Split 2.Outputs[All_Sells_After_Buy]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="All_Sells_After_Buy"
+                  synchronousInputId="Package\Import data &amp; transformation\Conditional Split 2.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[New_Actions]} == "buy" || (#{Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[New_Actions]} == "sell" &amp;&amp; #{Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[Trade_TS]} &gt; #{Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[Buy_TS]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">New_Actions == "buy" || (New_Actions == "sell" &amp;&amp; Trade_TS &gt; Buy_TS)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import data &amp; transformation\Conditional Split 2.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Import data &amp; transformation\Conditional Split 2.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import data &amp; transformation\Conditional Split 2.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Import data &amp; transformation\Conditional Split 2.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Conditional Split 2.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import data &amp; transformation\Conditional Split 2.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Conditional Split 2.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import data &amp; transformation\Conditional Split 2.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import data &amp; transformation\Conditional Split 4"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split 4"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Import data &amp; transformation\Conditional Split 4.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Conditional Split 4.Inputs[Conditional Split Input].Columns[New_Quantity]"
+                      cachedDataType="i4"
+                      cachedName="New_Quantity"
+                      lineageId="Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1].Columns[New_Quantity]" />
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Conditional Split 4.Inputs[Conditional Split Input].Columns[New_Actions]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="New_Actions"
+                      lineageId="Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1].Columns[New_Actions]" />
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Conditional Split 4.Inputs[Conditional Split Input].Columns[Max_Buy]"
+                      cachedDataType="i4"
+                      cachedName="Max_Buy"
+                      lineageId="Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1].Columns[Max_Buy]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import data &amp; transformation\Conditional Split 4.Outputs[Clean]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Clean"
+                  synchronousInputId="Package\Import data &amp; transformation\Conditional Split 4.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1].Columns[New_Actions]} == "buy" || (#{Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1].Columns[New_Actions]} == "sell" &amp;&amp; ![ISNULL](#{Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1].Columns[Max_Buy]}) &amp;&amp; #{Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1].Columns[New_Quantity]} &lt;= #{Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1].Columns[Max_Buy]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">New_Actions == "buy" || (New_Actions == "sell" &amp;&amp; !ISNULL(Max_Buy) &amp;&amp; New_Quantity &lt;= Max_Buy)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import data &amp; transformation\Conditional Split 4.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Import data &amp; transformation\Conditional Split 4.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import data &amp; transformation\Conditional Split 4.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Import data &amp; transformation\Conditional Split 4.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Conditional Split 4.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import data &amp; transformation\Conditional Split 4.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Conditional Split 4.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import data &amp; transformation\Conditional Split 4.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import data &amp; transformation\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Import data &amp; transformation\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Derived Column.Inputs[Derived Column Input].Columns[New_Actions]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="New_Actions"
+                      lineageId="Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1].Columns[New_Actions]" />
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Derived Column.Inputs[Derived Column Input].Columns[Trade_TS]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Trade_TS"
+                      lineageId="Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1].Columns[Trade_TS]" />
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Derived Column.Inputs[Derived Column Input].Columns[New_Quantity]"
+                      cachedDataType="i4"
+                      cachedName="New_Quantity"
+                      lineageId="Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1].Columns[New_Quantity]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import data &amp; transformation\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Import data &amp; transformation\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Derived Column.Outputs[Derived Column Output].Columns[Buy]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Import data &amp; transformation\Derived Column.Outputs[Derived Column Output].Columns[Buy]"
+                      name="Buy"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I4)(#{Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1].Columns[New_Actions]} == "buy" ? #{Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1].Columns[New_Quantity]} : 0)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)(New_Actions == "buy" ? New_Quantity : 0)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Derived Column.Outputs[Derived Column Output].Columns[Sell]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Import data &amp; transformation\Derived Column.Outputs[Derived Column Output].Columns[Sell]"
+                      name="Sell"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I4)(#{Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1].Columns[New_Actions]} == "sell" ? #{Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1].Columns[New_Quantity]} : 0)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)(New_Actions == "sell" ? New_Quantity : 0)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Derived Column.Outputs[Derived Column Output].Columns[Date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Import data &amp; transformation\Derived Column.Outputs[Derived Column Output].Columns[Date]"
+                      name="Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBDATE)#{Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1].Columns[Trade_TS]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBDATE)Trade_TS</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import data &amp; transformation\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Import data &amp; transformation\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import data &amp; transformation\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import data &amp; transformation\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import data &amp; transformation\Handling Negatives &amp; Dates"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Handling Negatives &amp; Dates"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Inputs[Derived Column Input].Columns[Action]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Action"
+                      lineageId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Action]" />
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Inputs[Derived Column Input].Columns[Quantity]"
+                      cachedDataType="i4"
+                      cachedName="Quantity"
+                      lineageId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Quantity]" />
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Inputs[Derived Column Input].Columns[Trade_TS]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Trade_TS"
+                      lineageId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Trade_TS]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Outputs[Derived Column Output].Columns[New_Actions]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Outputs[Derived Column Output].Columns[New_Actions]"
+                      name="New_Actions"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(#{Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Quantity]} &lt; 0 &amp;&amp; [LOWER](#{Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Action]}) == "buy") ? "sell" : (#{Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Quantity]} &lt; 0 &amp;&amp; [LOWER](#{Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Action]}) == "sell") ? "buy" : [LOWER](#{Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Action]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(Quantity &lt; 0 &amp;&amp; LOWER(Action) == "buy") ? "sell" : (Quantity &lt; 0 &amp;&amp; LOWER(Action) == "sell") ? "buy" : LOWER(Action)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Outputs[Derived Column Output].Columns[New_Quantity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Outputs[Derived Column Output].Columns[New_Quantity]"
+                      name="New_Quantity"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ABS](#{Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Quantity]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ABS(Quantity)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Outputs[Derived Column Output].Columns[New_Date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Outputs[Derived Column Output].Columns[New_Date]"
+                      name="New_Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBDATE)#{Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Trade_TS]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBDATE)Trade_TS</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import data &amp; transformation\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Import data &amp; transformation\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Merge Join.Inputs[Merge Join Left Input].Columns[Trader_ID]"
+                      cachedDataType="i4"
+                      cachedName="Trader_ID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Import data &amp; transformation\Sort 1.Outputs[Sort Output].Columns[Trader_ID]" />
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Merge Join.Inputs[Merge Join Left Input].Columns[Trade_TS]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Trade_TS"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\Import data &amp; transformation\Sort 1.Outputs[Sort Output].Columns[Trade_TS]" />
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Merge Join.Inputs[Merge Join Left Input].Columns[New_Quantity]"
+                      cachedDataType="i4"
+                      cachedName="New_Quantity"
+                      lineageId="Package\Import data &amp; transformation\Sort 1.Outputs[Sort Output].Columns[New_Quantity]" />
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Merge Join.Inputs[Merge Join Left Input].Columns[New_Actions]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="New_Actions"
+                      lineageId="Package\Import data &amp; transformation\Sort 1.Outputs[Sort Output].Columns[New_Actions]" />
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Merge Join.Inputs[Merge Join Left Input].Columns[New_Date]"
+                      cachedDataType="dbDate"
+                      cachedName="New_Date"
+                      lineageId="Package\Import data &amp; transformation\Sort 1.Outputs[Sort Output].Columns[New_Date]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Import data &amp; transformation\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Merge Join.Inputs[Merge Join Right Input].Columns[Trader_ID]"
+                      cachedDataType="i4"
+                      cachedName="Trader_ID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Import data &amp; transformation\Sort.Outputs[Sort Output].Columns[Trader_ID]" />
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Merge Join.Inputs[Merge Join Right Input].Columns[Buy_TS]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Buy_TS"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\Import data &amp; transformation\Sort.Outputs[Sort Output].Columns[Buy_TS]" />
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Merge Join.Inputs[Merge Join Right Input].Columns[New_Quantity]"
+                      cachedDataType="i4"
+                      cachedName="New_Quantity"
+                      lineageId="Package\Import data &amp; transformation\Sort.Outputs[Sort Output].Columns[New_Quantity]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[Trader_ID]"
+                      dataType="i4"
+                      lineageId="Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[Trader_ID]"
+                      name="Trader_ID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Import data &amp; transformation\Merge Join.Inputs[Merge Join Left Input].Columns[Trader_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[New_Quantity]"
+                      dataType="i4"
+                      lineageId="Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[New_Quantity]"
+                      name="New_Quantity">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Import data &amp; transformation\Merge Join.Inputs[Merge Join Left Input].Columns[New_Quantity]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[New_Actions]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[New_Actions]"
+                      name="New_Actions">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Import data &amp; transformation\Merge Join.Inputs[Merge Join Left Input].Columns[New_Actions]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[Trade_TS]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[Trade_TS]"
+                      name="Trade_TS">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Import data &amp; transformation\Merge Join.Inputs[Merge Join Left Input].Columns[Trade_TS]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[Buy_TS]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[Buy_TS]"
+                      name="Buy_TS">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Import data &amp; transformation\Merge Join.Inputs[Merge Join Right Input].Columns[Buy_TS]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[Buy_Quantity]"
+                      dataType="i4"
+                      lineageId="Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[Buy_Quantity]"
+                      name="Buy_Quantity">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Import data &amp; transformation\Merge Join.Inputs[Merge Join Right Input].Columns[New_Quantity]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[New_Date]"
+                      dataType="dbDate"
+                      lineageId="Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output].Columns[New_Date]"
+                      name="New_Date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Import data &amp; transformation\Merge Join.Inputs[Merge Join Left Input].Columns[New_Date]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import data &amp; transformation\Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\Import data &amp; transformation\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import data &amp; transformation\Multicast.Outputs[Multicast Output 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\Import data &amp; transformation\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import data &amp; transformation\Multicast.Outputs[Multicast Output 2]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 2"
+                  synchronousInputId="Package\Import data &amp; transformation\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import data &amp; transformation\Multicast.Outputs[Multicast Output 3]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 3"
+                  synchronousInputId="Package\Import data &amp; transformation\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import data &amp; transformation\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Trader_Summary]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import data &amp; transformation\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import data &amp; transformation\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Trader_ID]"
+                      cachedDataType="i4"
+                      cachedName="Trader_ID"
+                      externalMetadataColumnId="Package\Import data &amp; transformation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Trader_ID]"
+                      lineageId="Package\Import data &amp; transformation\Aggregate 1.Outputs[Aggregate Output 1].Columns[Trader_ID]" />
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Total_Sell]"
+                      cachedDataType="i8"
+                      cachedName="Total_Sell"
+                      externalMetadataColumnId="Package\Import data &amp; transformation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Total_Sell]"
+                      lineageId="Package\Import data &amp; transformation\Aggregate 1.Outputs[Aggregate Output 1].Columns[Total_Sell]" />
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Total_Buy]"
+                      cachedDataType="i8"
+                      cachedName="Total_Buy"
+                      externalMetadataColumnId="Package\Import data &amp; transformation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Total_Buy]"
+                      lineageId="Package\Import data &amp; transformation\Aggregate 1.Outputs[Aggregate Output 1].Columns[Total_Buy]" />
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Date]"
+                      cachedDataType="dbDate"
+                      cachedName="Date"
+                      externalMetadataColumnId="Package\Import data &amp; transformation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Trade_Date]"
+                      lineageId="Package\Import data &amp; transformation\Aggregate 1.Outputs[Aggregate Output 1].Columns[Date]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import data &amp; transformation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Att_Key]"
+                      dataType="i4"
+                      name="Att_Key" />
+                    <externalMetadataColumn
+                      refId="Package\Import data &amp; transformation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Trader_ID]"
+                      dataType="i4"
+                      name="Trader_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Import data &amp; transformation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Trade_Date]"
+                      dataType="wstr"
+                      length="10"
+                      name="Trade_Date" />
+                    <externalMetadataColumn
+                      refId="Package\Import data &amp; transformation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Total_Buy]"
+                      dataType="i4"
+                      name="Total_Buy" />
+                    <externalMetadataColumn
+                      refId="Package\Import data &amp; transformation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Total_Sell]"
+                      dataType="i4"
+                      name="Total_Sell" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import data &amp; transformation\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Import data &amp; transformation\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import data &amp; transformation\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import data &amp; transformation\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import data &amp; transformation\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Import data &amp; transformation\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Sort.Inputs[Sort Input].Columns[Trader_ID]"
+                      cachedDataType="i4"
+                      cachedName="Trader_ID"
+                      lineageId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Trader_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Sort.Inputs[Sort Input].Columns[Trade_TS]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Trade_TS"
+                      lineageId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Trade_TS]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Sort.Inputs[Sort Input].Columns[Action]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Action"
+                      lineageId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Action]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Sort.Inputs[Sort Input].Columns[Quantity]"
+                      cachedDataType="i4"
+                      cachedName="Quantity"
+                      lineageId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Quantity]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Sort.Inputs[Sort Input].Columns[New_Actions]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="New_Actions"
+                      lineageId="Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Outputs[Derived Column Output].Columns[New_Actions]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Sort.Inputs[Sort Input].Columns[New_Quantity]"
+                      cachedDataType="i4"
+                      cachedName="New_Quantity"
+                      lineageId="Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Outputs[Derived Column Output].Columns[New_Quantity]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Sort.Inputs[Sort Input].Columns[New_Date]"
+                      cachedDataType="dbDate"
+                      cachedName="New_Date"
+                      lineageId="Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Outputs[Derived Column Output].Columns[New_Date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import data &amp; transformation\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Sort.Outputs[Sort Output].Columns[Trader_ID]"
+                      dataType="i4"
+                      lineageId="Package\Import data &amp; transformation\Sort.Outputs[Sort Output].Columns[Trader_ID]"
+                      name="Trader_ID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Trader_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Sort.Outputs[Sort Output].Columns[Buy_TS]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Import data &amp; transformation\Sort.Outputs[Sort Output].Columns[Buy_TS]"
+                      name="Buy_TS"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Trade_TS]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Sort.Outputs[Sort Output].Columns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Import data &amp; transformation\Sort.Outputs[Sort Output].Columns[Action]"
+                      name="Action">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Action]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Sort.Outputs[Sort Output].Columns[Quantity]"
+                      dataType="i4"
+                      lineageId="Package\Import data &amp; transformation\Sort.Outputs[Sort Output].Columns[Quantity]"
+                      name="Quantity">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Quantity]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Sort.Outputs[Sort Output].Columns[New_Actions]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Import data &amp; transformation\Sort.Outputs[Sort Output].Columns[New_Actions]"
+                      name="New_Actions">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Outputs[Derived Column Output].Columns[New_Actions]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Sort.Outputs[Sort Output].Columns[New_Quantity]"
+                      dataType="i4"
+                      lineageId="Package\Import data &amp; transformation\Sort.Outputs[Sort Output].Columns[New_Quantity]"
+                      name="New_Quantity">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Outputs[Derived Column Output].Columns[New_Quantity]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Sort.Outputs[Sort Output].Columns[New_Date]"
+                      dataType="dbDate"
+                      lineageId="Package\Import data &amp; transformation\Sort.Outputs[Sort Output].Columns[New_Date]"
+                      name="New_Date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Outputs[Derived Column Output].Columns[New_Date]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import data &amp; transformation\Sort 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Import data &amp; transformation\Sort 1.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Sort 1.Inputs[Sort Input].Columns[Trader_ID]"
+                      cachedDataType="i4"
+                      cachedName="Trader_ID"
+                      lineageId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Trader_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Sort 1.Inputs[Sort Input].Columns[Trade_TS]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Trade_TS"
+                      lineageId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Trade_TS]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Sort 1.Inputs[Sort Input].Columns[Action]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Action"
+                      lineageId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Action]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Sort 1.Inputs[Sort Input].Columns[Quantity]"
+                      cachedDataType="i4"
+                      cachedName="Quantity"
+                      lineageId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Quantity]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Sort 1.Inputs[Sort Input].Columns[New_Actions]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="New_Actions"
+                      lineageId="Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Outputs[Derived Column Output].Columns[New_Actions]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Sort 1.Inputs[Sort Input].Columns[New_Quantity]"
+                      cachedDataType="i4"
+                      cachedName="New_Quantity"
+                      lineageId="Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Outputs[Derived Column Output].Columns[New_Quantity]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import data &amp; transformation\Sort 1.Inputs[Sort Input].Columns[New_Date]"
+                      cachedDataType="dbDate"
+                      cachedName="New_Date"
+                      lineageId="Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Outputs[Derived Column Output].Columns[New_Date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import data &amp; transformation\Sort 1.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Sort 1.Outputs[Sort Output].Columns[Trader_ID]"
+                      dataType="i4"
+                      lineageId="Package\Import data &amp; transformation\Sort 1.Outputs[Sort Output].Columns[Trader_ID]"
+                      name="Trader_ID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Trader_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Sort 1.Outputs[Sort Output].Columns[Trade_TS]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Import data &amp; transformation\Sort 1.Outputs[Sort Output].Columns[Trade_TS]"
+                      name="Trade_TS"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Trade_TS]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Sort 1.Outputs[Sort Output].Columns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Import data &amp; transformation\Sort 1.Outputs[Sort Output].Columns[Action]"
+                      name="Action">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Action]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Sort 1.Outputs[Sort Output].Columns[Quantity]"
+                      dataType="i4"
+                      lineageId="Package\Import data &amp; transformation\Sort 1.Outputs[Sort Output].Columns[Quantity]"
+                      name="Quantity">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Quantity]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Sort 1.Outputs[Sort Output].Columns[New_Actions]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Import data &amp; transformation\Sort 1.Outputs[Sort Output].Columns[New_Actions]"
+                      name="New_Actions">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Outputs[Derived Column Output].Columns[New_Actions]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Sort 1.Outputs[Sort Output].Columns[New_Quantity]"
+                      dataType="i4"
+                      lineageId="Package\Import data &amp; transformation\Sort 1.Outputs[Sort Output].Columns[New_Quantity]"
+                      name="New_Quantity">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Outputs[Derived Column Output].Columns[New_Quantity]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Sort 1.Outputs[Sort Output].Columns[New_Date]"
+                      dataType="dbDate"
+                      lineageId="Package\Import data &amp; transformation\Sort 1.Outputs[Sort Output].Columns[New_Date]"
+                      name="New_Date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Outputs[Derived Column Output].Columns[New_Date]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import data &amp; transformation\Trades data source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Trades data source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from Raw_Trades</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import data &amp; transformation\Trades data source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Trader_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].ExternalColumns[Trader_ID]"
+                      lineageId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Trader_ID]"
+                      name="Trader_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Trade_TS]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].ExternalColumns[Trade_TS]"
+                      lineageId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Trade_TS]"
+                      name="Trade_TS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].ExternalColumns[Action]"
+                      length="10"
+                      lineageId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Action]"
+                      name="Action"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Quantity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].ExternalColumns[Quantity]"
+                      lineageId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].Columns[Quantity]"
+                      name="Quantity"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].ExternalColumns[Trader_ID]"
+                      dataType="i4"
+                      name="Trader_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].ExternalColumns[Trade_TS]"
+                      dataType="dbTimeStamp"
+                      name="Trade_TS" />
+                    <externalMetadataColumn
+                      refId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].ExternalColumns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Action" />
+                    <externalMetadataColumn
+                      refId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output].ExternalColumns[Quantity]"
+                      dataType="i4"
+                      name="Quantity" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Error Output].Columns[Trader_ID]"
+                      dataType="i4"
+                      lineageId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Error Output].Columns[Trader_ID]"
+                      name="Trader_ID" />
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Error Output].Columns[Trade_TS]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Error Output].Columns[Trade_TS]"
+                      name="Trade_TS" />
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Error Output].Columns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Error Output].Columns[Action]"
+                      name="Action" />
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                      dataType="i4"
+                      lineageId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                      name="Quantity" />
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Import data &amp; transformation.Paths[Aggregate Output 1]"
+              endId="Package\Import data &amp; transformation\Conditional Split 4.Inputs[Conditional Split Input]"
+              name="Aggregate Output 1"
+              startId="Package\Import data &amp; transformation\Aggregate.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\Import data &amp; transformation.Paths[Aggregate Output 11]"
+              endId="Package\Import data &amp; transformation\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Aggregate Output 1"
+              startId="Package\Import data &amp; transformation\Aggregate 1.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\Import data &amp; transformation.Paths[All_Sells_After_Buy]"
+              endId="Package\Import data &amp; transformation\Aggregate.Inputs[Aggregate Input 1]"
+              name="All_Sells_After_Buy"
+              startId="Package\Import data &amp; transformation\Conditional Split 2.Outputs[All_Sells_After_Buy]" />
+            <path
+              refId="Package\Import data &amp; transformation.Paths[Buy]"
+              endId="Package\Import data &amp; transformation\Merge Join.Inputs[Merge Join Right Input]"
+              name="Buy"
+              startId="Package\Import data &amp; transformation\Conditional Split 1.Outputs[Buy]" />
+            <path
+              refId="Package\Import data &amp; transformation.Paths[Clean]"
+              endId="Package\Import data &amp; transformation\Derived Column.Inputs[Derived Column Input]"
+              name="Clean"
+              startId="Package\Import data &amp; transformation\Conditional Split 4.Outputs[Clean]" />
+            <path
+              refId="Package\Import data &amp; transformation.Paths[Derived Column Output]"
+              endId="Package\Import data &amp; transformation\Multicast.Inputs[Multicast Input 1]"
+              name="Derived Column Output"
+              startId="Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Import data &amp; transformation.Paths[Derived Column Output1]"
+              endId="Package\Import data &amp; transformation\Aggregate 1.Inputs[Aggregate Input 1]"
+              name="Derived Column Output"
+              startId="Package\Import data &amp; transformation\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Import data &amp; transformation.Paths[Merge Join Output]"
+              endId="Package\Import data &amp; transformation\Conditional Split 2.Inputs[Conditional Split Input]"
+              name="Merge Join Output"
+              startId="Package\Import data &amp; transformation\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Import data &amp; transformation.Paths[Multicast Output 1]"
+              endId="Package\Import data &amp; transformation\Sort.Inputs[Sort Input]"
+              name="Multicast Output 1"
+              startId="Package\Import data &amp; transformation\Multicast.Outputs[Multicast Output 1]" />
+            <path
+              refId="Package\Import data &amp; transformation.Paths[Multicast Output 2]"
+              endId="Package\Import data &amp; transformation\Sort 1.Inputs[Sort Input]"
+              name="Multicast Output 2"
+              startId="Package\Import data &amp; transformation\Multicast.Outputs[Multicast Output 2]" />
+            <path
+              refId="Package\Import data &amp; transformation.Paths[OLE DB Source Output]"
+              endId="Package\Import data &amp; transformation\Handling Negatives &amp; Dates.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Import data &amp; transformation\Trades data source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Import data &amp; transformation.Paths[Sort Output]"
+              endId="Package\Import data &amp; transformation\Conditional Split 1.Inputs[Conditional Split Input]"
+              name="Sort Output"
+              startId="Package\Import data &amp; transformation\Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\Import data &amp; transformation.Paths[Sort Output1]"
+              endId="Package\Import data &amp; transformation\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Import data &amp; transformation\Sort 1.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="217.6,41.6"
+          Id="Package\Import data &amp; transformation"
+          TopLeft="19.2857143267687,9.94117646187438" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Import data &amp; transformation">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="168.8,41.6"
+          Id="Package\Import data &amp; transformation\Trades data source"
+          TopLeft="311.349207011987,12.9999999886053" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Import data &amp; transformation\Multicast"
+          TopLeft="338.992063946532,164.584967286002" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Import data &amp; transformation\Sort 1"
+          TopLeft="118.039682396077,157.460784338303" />
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\Import data &amp; transformation\Conditional Split 4"
+          TopLeft="347.959184414183,495.966386119888" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Import data &amp; transformation\OLE DB Destination"
+          TopLeft="610.022677035539,710.98599393283" />
+        <NodeLayout
+          Size="209.6,41.6"
+          Id="Package\Import data &amp; transformation\Handling Negatives &amp; Dates"
+          TopLeft="288.174603788052,89.2156861963089" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Import data &amp; transformation\Derived Column"
+          TopLeft="616.326531924243,495.966386119888" />
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\Import data &amp; transformation\Conditional Split 2"
+          TopLeft="83.9285716072333,381.39705848922" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\Import data &amp; transformation\Sort"
+          TopLeft="360.579365643649,257.787581557095" />
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\Import data &amp; transformation\Conditional Split 1"
+          TopLeft="315.079365750086,347.516339564669" />
+        <NodeLayout
+          Size="136,41.6"
+          Id="Package\Import data &amp; transformation\Aggregate 1"
+          TopLeft="624.489797247742,596.134453339118" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Import data &amp; transformation\Merge Join"
+          TopLeft="95.6587299036196,277.526143736481" />
+        <NodeLayout
+          Size="126.4,41.6"
+          Id="Package\Import data &amp; transformation\Aggregate"
+          TopLeft="87.5000001862646,495.147058389514" />
+        <EdgeLayout
+          Id="Package\Import data &amp; transformation.Paths[Sort Output1]"
+          TopLeft="171.239682396077,199.060784338303">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-10.7809524924576,78.4653593981784"
+              Start="0,0"
+              End="-10.7809524924576,70.9653593981784">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.2326796990892" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.2326796990892"
+                    Point2="0,39.2326796990892"
+                    Point3="-4,39.2326796990892" />
+                  <mssgle:LineSegment
+                    End="-6.78095249245763,39.2326796990892" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6.78095249245763,39.2326796990892"
+                    Point2="-10.7809524924576,39.2326796990892"
+                    Point3="-10.7809524924576,43.2326796990892" />
+                  <mssgle:LineSegment
+                    End="-10.7809524924576,70.9653593981784" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import data &amp; transformation.Paths[Sort Output]"
+          TopLeft="409.379365643649,299.387581557095">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.1666667731033,48.1287580075743"
+              Start="0,0"
+              End="13.1666667731033,40.6287580075743">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5968931074131" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.5968931074131"
+                    Point2="0,28.5968931074131"
+                    Point3="4,28.5968931074131" />
+                  <mssgle:LineSegment
+                    End="9.16666677310332,28.5968931074131" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.16666677310332,28.5968931074131"
+                    Point2="13.1666667731033,28.5968931074131"
+                    Point3="13.1666667731033,32.5968931074131" />
+                  <mssgle:LineSegment
+                    End="13.1666667731033,40.6287580075743" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import data &amp; transformation.Paths[OLE DB Source Output]"
+          TopLeft="394.36190540002,54.5999999886053">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.6156862077036"
+              Start="0,0"
+              End="0,27.1156862077036">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.1156862077036" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import data &amp; transformation.Paths[Multicast Output 2]"
+          TopLeft="338.992063946532,181.822875812152">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-114.552381550455,0"
+              Start="0,0"
+              End="-107.052381550455,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-107.052381550455,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import data &amp; transformation.Paths[Multicast Output 1]"
+          TopLeft="398.992063946532,206.184967286002">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.3873016971174,51.6026142710931"
+              Start="0,0"
+              End="10.3873016971174,44.1026142710931">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.8013071355465" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.8013071355465"
+                    Point2="0,25.8013071355465"
+                    Point3="4,25.8013071355465" />
+                  <mssgle:LineSegment
+                    End="6.38730169711738,25.8013071355465" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.38730169711738,25.8013071355465"
+                    Point2="10.3873016971174,25.8013071355465"
+                    Point3="10.3873016971174,29.8013071355465" />
+                  <mssgle:LineSegment
+                    End="10.3873016971174,44.1026142710931" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import data &amp; transformation.Paths[Merge Join Output]"
+          TopLeft="140.192063236953,319.126143736481">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="25.3365083702804,62.2709147527387"
+              Start="0,0"
+              End="25.3365083702804,54.7709147527387">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.3640067407497" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.3640067407497"
+                    Point2="0,25.3640067407497"
+                    Point3="4,25.3640067407497" />
+                  <mssgle:LineSegment
+                    End="21.3365083702804,25.3640067407497" />
+                  <mssgle:CubicBezierSegment
+                    Point1="21.3365083702804,25.3640067407497"
+                    Point2="25.3365083702804,25.3640067407497"
+                    Point3="25.3365083702804,29.3640067407497" />
+                  <mssgle:LineSegment
+                    End="25.3365083702804,54.7709147527387" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import data &amp; transformation.Paths[Derived Column Output1]"
+          TopLeft="692.608164585992,537.566386119888">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.5680672192302"
+              Start="0,0"
+              End="0,51.0680672192302">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.0680672192302" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import data &amp; transformation.Paths[Derived Column Output]"
+          TopLeft="395.983333867292,130.815686196309">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.7692810896931"
+              Start="0,0"
+              End="0,26.2692810896931">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.2692810896931" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import data &amp; transformation.Paths[Clean]"
+          TopLeft="511.159184414183,516.766386119888">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="105.167347510059,0"
+              Start="0,0"
+              End="97.6673475100594,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="97.6673475100594,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="36.1142206300297,5,25.43890625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import data &amp; transformation.Paths[Buy]"
+          TopLeft="370.812699083419,347.516339564669">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-210.3539691798,-28.3901958281879"
+              Start="0,0"
+              End="-210.3539691798,-20.8901958281879">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-7.52145811279859" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-7.52145811279859"
+                    Point2="0,-11.5214581127986"
+                    Point3="-4,-11.5214581127986" />
+                  <mssgle:LineSegment
+                    End="-206.3539691798,-11.5214581127986" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-206.3539691798,-11.5214581127986"
+                    Point2="-210.3539691798,-11.5214581127986"
+                    Point3="-210.3539691798,-15.5214581127986" />
+                  <mssgle:LineSegment
+                    End="-210.3539691798,-20.8901958281879" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-114.01891818365,-6.5214581127986,17.6838671875,11.2822265625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import data &amp; transformation.Paths[All_Sells_After_Buy]"
+          TopLeft="165.528571607233,422.99705848922">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14.8285714209688,72.1499999002938"
+              Start="0,0"
+              End="-14.8285714209688,64.6499999002938">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.0749999501469" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.0749999501469"
+                    Point2="0,36.0749999501469"
+                    Point3="-4,36.0749999501469" />
+                  <mssgle:LineSegment
+                    End="-10.8285714209688,36.0749999501469" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.8285714209688,36.0749999501469"
+                    Point2="-14.8285714209688,36.0749999501469"
+                    Point3="-14.8285714209688,40.0749999501469" />
+                  <mssgle:LineSegment
+                    End="-14.8285714209688,64.6499999002938" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-50.7542857104844,41.0749999501469,86.68,11.658203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import data &amp; transformation.Paths[Aggregate Output 11]"
+          TopLeft="693.856237141641,637.734453339118">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,73.251540593712"
+              Start="0,0"
+              End="0,65.751540593712">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,65.751540593712" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import data &amp; transformation.Paths[Aggregate Output 1]"
+          TopLeft="213.900000186265,516.356722254701">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="134.059184227919,0"
+              Start="0,0"
+              End="126.559184227919,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="126.559184227919,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import data &amp; transformation\Trades data source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import data &amp; transformation\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
